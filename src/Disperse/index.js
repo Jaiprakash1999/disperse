@@ -13,7 +13,7 @@ const Disperse = () => {
         const invalidAmountErrors = [];
 
         addressList.forEach((line, index) => {
-            const parts = line.trim().split(" ");
+            const parts = line.trim().split(/[,= ]+/);
             if (parts.length !== 2) {
                 formatErrors.push(`Line ${index + 1} has an incorrect format.`);
             } else {
@@ -28,7 +28,7 @@ const Disperse = () => {
                 } else if (addressSet.has(address)) {
                     const duplicateIndexes = [];
                     addressList.forEach((addrLine, i) => {
-                        const [addr] = addrLine.trim().split(" ");
+                        const [addr] = addrLine.trim().split(/[,= ]+/);
                         if (addr === address) {
                             duplicateIndexes.push(i + 1);
                         }
@@ -68,7 +68,7 @@ const Disperse = () => {
         const seenAddresses = new Set();
 
         addresses.forEach((line) => {
-            const [address] = line.trim().split(" ");
+            const [address] = line.trim().split(/[,= ]+/);
             if (!seenAddresses.has(address)) {
                 uniqueAddresses.push(line);
                 seenAddresses.add(address);
@@ -84,7 +84,7 @@ const Disperse = () => {
         setAddresses([]);
         const combined = {};
         addresses.forEach((line) => {
-            const [address, amount] = line.trim().split(" ");
+            const [address, amount] = line.trim().split(/[,= ]+/);
             combined[address] = (combined[address] || 0) + parseFloat(amount);
         });
         const combinedResult = Object.entries(combined).map(
