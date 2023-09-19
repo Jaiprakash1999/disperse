@@ -109,7 +109,7 @@ const Disperse = () => {
                         Addresses with Amounts{" "}
                     </label>
                     <textarea
-                        rows="5"
+                        rows="10"
                         cols="50"
                         value={addresses.join("\n")}
                         onChange={(e) =>
