@@ -57,3 +57,46 @@
 .header_text {
     margin-bottom: 8px;
 }
+
+.textarea-container {
+    border: 2px solid blue;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+.line-numbers {
+    width: 1.5em;
+    padding-right: 0.2em;
+    text-align: right;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    border-top-left-radius: 8px;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.line-number {
+    color: #666;
+    padding-top: 0.02em;
+    font-weight: 600;
+}
+textarea {
+    flex: 1;
+    border: none;
+    resize: none;
+    padding: 0.2em;
+    font-size: 1.2em;
+    overflow: auto;
+    outline: none;
+    border-top-right-radius: 8px;
+    margin-top: 0px;
+    border-bottom-right-radius: 8px;
+    font-weight: 600;
+}
+
+.bottom-tetx {
+    color: #666666;
+    margin-top: 4px;
+}

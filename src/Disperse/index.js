@@ -109,16 +109,30 @@ const Disperse = () => {
                     <label className="header_text">
                         Addresses with Amounts{" "}
                     </label>
-                    <textarea
-                        rows="10"
-                        cols="50"
-                        value={addresses.join("\n")}
-                        onChange={(e) =>
-                            setAddresses(e.target.value.split("\n"))
-                        }
-                        placeholder="Enter Addresses with Amount"
-                    />
+                    <div className="textarea-container">
+                        <div className="line-numbers">
+                            {addresses.map((_, index) => (
+                                <div key={index} className="line-number">
+                                    {index + 1}
+                                </div>
+                            ))}
+                        </div>
+                        <textarea
+                            rows="12"
+                            cols="50"
+                            className="auto-expand"
+                            value={addresses.join("\n")}
+                            onChange={(e) =>
+                                setAddresses(e.target.value.split("\n"))
+                            }
+                            placeholder="Enter Addresses with Amount"
+                        />
+                    </div>
+                    <span className="bottom-tetx">
+                        Separated by "," or " " or "="
+                    </span>
                 </div>
+
                 {duplicateErrors.length > 0 && (
                     <div className="header">
                         <span className="button-text ">Duplicated</span>
