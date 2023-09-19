@@ -9,7 +9,7 @@ const Disperse = () => {
     const validateAddresses = (addressList) => {
         const addressSet = new Set();
         const formatErrors = [];
-        const duplicateErrors = [];
+        let duplicateErrors = [];
         const invalidAmountErrors = [];
 
         addressList.forEach((line, index) => {
@@ -38,6 +38,7 @@ const Disperse = () => {
                             ", "
                         )}`
                     );
+                    duplicateErrors = [...new Set(duplicateErrors)];
                 } else {
                     addressSet.add(address);
                     if (!/^\d+(\.\d+)?$/.test(amount)) {
