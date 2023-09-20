@@ -39,6 +39,12 @@ const Disperse = () => {
                         )}`
                     );
                     duplicateErrors = [...new Set(duplicateErrors)];
+                    addressSet.add(address);
+                    if (!/^\d+(\.\d+)?$/.test(amount)) {
+                        invalidAmountErrors.push(
+                            `Line ${index + 1} Wrong amount.`
+                        );
+                    }
                 } else {
                     addressSet.add(address);
                     if (!/^\d+(\.\d+)?$/.test(amount)) {
