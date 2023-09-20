@@ -58,8 +58,8 @@ const Disperse = () => {
 
         const allErrors = [
             ...formatErrors,
-            ...duplicateErrors,
             ...invalidAmountErrors,
+            ...duplicateErrors,
         ];
         setError(allErrors);
 
